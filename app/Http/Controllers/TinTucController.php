@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\TinTuc;
 use App\LoaiTin;
 use App\TheLoai;
+use App\Comment;
 
 class TinTucController extends Controller
 {
