@@ -44,9 +44,7 @@ Route::group(['prefix' => 'admin'], function(){
 	});
 
 	Route::group(['prefix' => 'comment'], function(){
-		Route::get('danhsach', 'CommentController@getDanhSach');
-		Route::get('sua', 'CommentController@getSua');
-		Route::get('them', 'CommentController@getThem');
+		Route::get('xoa/{id}/{idTinTuc}', 'CommentController@getXoa');
 	});
 
 	Route::group(['prefix' => 'slide'], function(){
