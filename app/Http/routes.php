@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('admin/login', 'UserController@getLogin');
+Route::post('admin/login', 'UserController@postLogin');
+Route::get('admin/logout', 'UserController@getLogout');
+
 Route::group(['prefix' => 'admin'], function(){
 	Route::group(['prefix' => 'theloai'], function(){
 		Route::get('danhsach', 'TheLoaiController@getDanhSach');
