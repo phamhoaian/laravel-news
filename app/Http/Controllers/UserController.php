@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\User;
 
@@ -99,5 +100,36 @@ class UserController extends Controller
         $user->delete();
 
         return redirect('admin/user/danhsach')->with('thongbao', 'Xóa thành viên thành công');
+    }
+
+    public function getLogin()
+    {
+        return view('admin.login');
+    }
+
+    public function postLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'
+        ],[
+            'email.required' => 'Bạn chưa nhập email',
+            'password.required' => 'Bạn chưa nhập password'
+        ]);
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password]))
+        {
+            return redirect('admin/user/danhsach');
+        }
+        else
+        {
+            return redirect('admin/login')->with('thongbao', 'Email hoặc mật khẩu sai');
+        }
+    }
+
+    public function getLogout()
+    {
+        Auth::logout();
+        return redirect('admin/login');
     }
 }
