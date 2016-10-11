@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'PagesController@home');
 
 Route::get('admin/login', 'UserController@getLogin');
 Route::post('admin/login', 'UserController@postLogin');
