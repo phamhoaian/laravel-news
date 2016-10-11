@@ -23,9 +23,9 @@
             		<!-- item -->
 				    <div class="row-item row">
 	                	<h3>
-	                		<a href="category.html">{{$tl->Ten}}</a> | 	
+	                		<a href="#">{{$tl->Ten}}</a> | 	
 	                		@foreach($tl->loaitin as $lt)
-	                		<small><a href="#"><i>{{$lt->Ten}}</i></a> / </small>
+	                		<small><a href="loaitin/{{$lt->id}}/{{$lt->TenKhongDau}}.html"><i>{{$lt->Ten}}</i></a> / </small>
 	                		@endforeach
 	                	</h3>
 	                	<?php

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\TheLoai;
 use App\Slide;
+use App\LoaiTin;
+use App\TinTuc;
 
 class PagesController extends Controller
 {
@@ -21,5 +23,12 @@ class PagesController extends Controller
     public function home()
     {
     	return view('pages.home');
+    }
+
+    public function loaitin($id)
+    {
+    	$loaitin = LoaiTin::find($id);
+    	$tintuc = TinTuc::where('idLoaiTin', $id)->paginate(5);
+    	return view('pages.loaitin', ['loaitin' => $loaitin, 'tintuc' => $tintuc]);
     }
 }

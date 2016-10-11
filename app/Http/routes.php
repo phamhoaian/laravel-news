@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PagesController@home');
+Route::get('loaitin/{id}/{TenKhongDau}.html', 'PagesController@loaitin');
 
 Route::get('admin/login', 'UserController@getLogin');
 Route::post('admin/login', 'UserController@postLogin');
