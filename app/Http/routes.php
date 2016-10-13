@@ -13,6 +13,7 @@
 
 Route::get('/', 'PagesController@home');
 Route::get('loaitin/{id}/{TenKhongDau}.html', 'PagesController@loaitin');
+Route::get('tintuc/{id}/{TieuDeKhongoDau}.html', 'PagesController@tintuc');
 
 Route::get('admin/login', 'UserController@getLogin');
 Route::post('admin/login', 'UserController@postLogin');
